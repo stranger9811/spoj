@@ -53,10 +53,14 @@ void mergesort(int a[][3],int low,int high,int parameter)
 }
 int Find(int i)
 {
+    int j;
 	if(parent[i]==i)
 		return i;
-	else
-		return Find(parent[i]);
+	else {
+        j=Find(parent[i]);
+        parent[i]=j;
+        return j;
+    }
 }
 int is_connected(int x,int y)
 {
